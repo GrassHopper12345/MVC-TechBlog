@@ -11,19 +11,13 @@ Comment.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
+    comment_data: {
       type: DataTypes.STRING,
       allowNull: false,
+      validate: {
+        len: [1],
+      },
     },
-    description: {
-      type: DataTypes.STRING,
-    },
-    date_created: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      defaultValue: DataTypes.NOW,
-    },
-    //not sure if this needs to be linked by user or post id
     user_id: {
       type: DataTypes.INTEGER,
       references: {
@@ -31,10 +25,18 @@ Comment.init(
         key: 'id',
       },
     },
+    post_id: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    references: {
+      model: 'post',
+      key: 'id',
+    },
+    },
   },
   {
     sequelize,
-    timestamps: false,
+    timestamps: true,
     freezeTableName: true,
     underscored: true,
     modelName: 'comment',

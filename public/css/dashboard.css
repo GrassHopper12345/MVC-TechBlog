@@ -7,3 +7,10 @@
     background-color: rgba(126, 126, 126, 0.2);
     border-radius: 0.6em;
 }
+
+body {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-image: url('/images/Screenshot 2023-12-21 at 5.20.39 PM.png');
+    background-size: cover;
+}

@@ -11,7 +11,7 @@ const deletePost = async (post_id) => {
     }
 };
 
-const deletePostHandler = {event} => {
+const deletePostHandler = (event) => {
     if (event.target.matches('.delete-post')) {
         const post_id = event.target.getAttribute('data-post-id');
         deletePost(post_id);

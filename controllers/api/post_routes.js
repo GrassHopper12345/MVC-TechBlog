@@ -57,11 +57,27 @@ router.put('/:id', auth, async (req, res) => {
             return;
         }
         res.status(200).json(updatePost);
-    }catch (err) {
+    } catch (err) {
         res.status(500).json({ message: err.message });
     }
 });
 
 router.delete('/:id', auth, async (req, res) => {
-    
-})
+    try {
+        await Comment.destroy({
+            where: { post_id: req.params.id },
+        });
+        const deletePost = await Post.destroy({
+            where: { id: req.params.id },
+        });
+        if (!deletePost) {
+            res.status(404).json({ message: 'Post not found using that id!' });
+            return;
+        }
+        res.status(200).json(deletePost);
+    }catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+});
+
+module.exports = router;

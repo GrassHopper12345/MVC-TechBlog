@@ -51,4 +51,8 @@ const postData = [
         body: 'This is crazy stuff',
         user_id: 10,
     },
-]
+];
+
+const seedPosts = () => Post.bulkCreate(postData);
+
+module.exports = seedPosts;

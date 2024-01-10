@@ -14,3 +14,8 @@ body {
     background-image: url('/images/Screenshot 2023-12-21 at 5.20.39 PM.png');
     background-size: cover;
 }
+
+/* media Querys */
+
+@media screen and (min-width:768px) {}
+

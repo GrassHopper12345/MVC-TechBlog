@@ -39,7 +39,7 @@ const deletePostHandler = async (event) => {
 const updatePostButton = document.querySelector("#update-post");
 
 if (updatePostButton) {
-    updatePostButton.addEventListener("clcik", updatePostHandler);
+    updatePostButton.addEventListener("click", updatePostHandler);
 }
 
 const deletePostButton = document.querySelector("#delete-post");

@@ -1,11 +1,11 @@
 module.exports = {
     format_date: (date) => {
       // Format date as MM/DD/YYYY
-      const date = new Date(date);
-      const formatDate = `${date.getMonth()+1}/${date.getDate()}/${date.getFullYear()}`;
-      const hour = date.getHours().toString().padStart(2, '0');
-      const minute = date.getMinutes().toString().padStart(2, '0');
-      const second = date.getSeconds().toString().padStart(2, '0');
+      const dates = new Date(date);
+      const formatDate = `${dates.getMonth()+1}/${dates.getDate()}/${dates.getFullYear()}`;
+      const hour = dates.getHours().toString().padStart(2, '0');
+      const minute = dates.getMinutes().toString().padStart(2, '0');
+      const second = dates.getSeconds().toString().padStart(2, '0');
       const formatTime = `${hour}:${minute}:${second}`;
       return `${formatDate} at ${formatTime}`;
     },

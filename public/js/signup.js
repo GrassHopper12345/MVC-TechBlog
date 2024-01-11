@@ -9,13 +9,13 @@ const signupHandler = async (event) => {
         const response = await fetch('api/users/signup', {
             method: 'POST',
             body: JSON.stringify({ username, email, password }),
-            headers: { 'Content-Type': 'application/json'},
+            headers: { 'Content-Type': 'application/json' },
 
         });
 
         if (response.ok) {
             document.location.replace('/');
-        }else {
+        } else {
             alert('Could not complete signup! Please try again.');
         }
     }

@@ -1,4 +1,4 @@
-const { Comment} = require('../models');
+const { Comment } = require('../models');
 
 const commentData = [
     {
@@ -9,7 +9,7 @@ const commentData = [
     {
         comment_text: "Agreed",
         post_id: 1,
-        user_id: 2, 
+        user_id: 2,
     },
     {
         comment_text: "Agreed",

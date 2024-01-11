@@ -3,15 +3,13 @@
     <form class="update-post-form" class="mb-3">
         <div class="mb-3">
             <label for="title-update-post" class="form-label">Title</label>
-            <input type="text"
-            class="form-control"
-            placeholder="Enter Post Title"
-            value="{{title}}"
-            id="title-update-post"/>
+            <input type="text" class="form-control" placeholder="Enter Post Title" value="{{title}}"
+                id="title-update-post" />
         </div>
         <div><class="mb-3">
-            <label for="body-update-post" class="form-label">Body</label>
-            <input type="text" class="form-control" rows="4" placeholder="Enter post body" id="body-update-post">{{content}}</textarea>
+                <label for="body-update-post" class="form-label">Body</label>
+                <input type="text" class="form-control" rows="4" placeholder="Enter post body"
+                    id="body-update-post">{{content}}</textarea>
         </div>
         <button class="btn btn-primary" id="update-post" type="submit">Update Post</button>
         <button class="btn btn-danger" id="delete-post" type="button">Delete Post</button>

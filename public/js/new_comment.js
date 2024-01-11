@@ -8,13 +8,13 @@ const newCommetHandler = async (event) => {
     if (body) {
         const response = await fetch('/api/comments', {
             method: 'POST',
-            body: JSON.stringify({comment_text: content, post_id}),
-            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({ comment_text: content, post_id }),
+            headers: { 'Content-Type': 'application/json' },
         });
 
         if (response.ok) {
             document.location.reload();
-        }else{
+        } else {
             alert('Error, failed to create new comment! Please try again');
         }
     }

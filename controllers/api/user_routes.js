@@ -15,8 +15,8 @@ router.post('/signup', async (req, res) => {
     try {
         const newUserData = new User();
         newUserData.username = req.body.username;
-        newUserData.password = req.body.password;
         newUserData.email = req.body.email;
+        newUserData.password = req.body.password;
 
         const userData = await newUserData.save();
 
@@ -28,6 +28,7 @@ router.post('/signup', async (req, res) => {
         });
     } catch (err) {
         res.status(400).json(err);
+        console.log(err);
     }
 });
 

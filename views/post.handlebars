@@ -1,8 +1,25 @@
 <main class="container mt-4">
     <article>
         <h1>{{title}}</h1>
-        <p>Posted by: {{user.username}} | Date: {{format-data createdAt}}</p>
+        <p>Posted by: {{user.username}} | Date: {{format_data createdAt}}</p>
         {{!-- I dont know if using {{body}} will work --}}
         <p>{{body}}</p>
     </article>
+    {{#if logged_in}}
+    <form class="new-comment-form" class="mb-3">
+        <div class="mb-3">
+            <label for="comment" class="form-label">Add Comment</label>
+            <textarea placeholder="Please Add Comment Here" id="body-new-comment" class="form-control" rows="10">
+            </textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit Comment</button>
+    </form>
+    {{/if}}
+    <h2>Comment History:</h2>
+    {{#each comments}}
+    <div class="comment mb-3">
+        <p>{{comment_text}}</p>
+        <p>Created by: {{user.username}} on {{format_data createdAt}}</p>
+    </div>
+    {{/each}}
 </main>

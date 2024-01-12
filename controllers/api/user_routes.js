@@ -13,15 +13,17 @@ router.get('/', (req, res) => {
 
 router.post('/signup', async (req, res) => {
     try {
+        console.log(123);
         const newUserData = new User();
         newUserData.username = req.body.username;
         newUserData.email = req.body.email;
         newUserData.password = req.body.password;
 
         const userData = await newUserData.save();
+        console.log(userData);
 
         req.session.save(() => {
-            req.session.user_id = userData.isSoftDeleted;
+            req.session.user_id = userData.id;
             req.session.logged_in = true;
 
             res.status(200).json(userData);
@@ -56,7 +58,7 @@ router.post('/login', async (req, res) => {
     }
 });
 
-router.post("/logout", (req, res) => {
+router.get("/logout", (req, res) => {
     if (req.session.logged_in) {
         req.session.destroy(() => {
             res.status(204).end();

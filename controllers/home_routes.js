@@ -35,17 +35,21 @@ router.get('/posts/:id', auth, async (req, res) => {
       logged_in: req.session.logged_in,
     });
   } catch (err) {
+    console.error(err.message);
     res.status(500).json(err);
   }
 });
 
 router.get('/dashboard', auth, async (req, res) => {
   try {
+    console.log('123');
+    console.log(req.session);
     const postData = await Post.findAll({
       where: { user_id: req.session.user_id },
       include: [{ model: User, attributes: ['username'] }],
     });
     const posts = postData.map((post) => post.get({ plain: true }));
+    console.log(posts);
     res.render('dashboard', {
       posts,
       logged_in: req.session.logged_in,

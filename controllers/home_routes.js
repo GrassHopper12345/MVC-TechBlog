@@ -62,14 +62,22 @@ router.get('/dashboard', auth, async (req, res) => {
 router.get('/login', (req, res) => {
   if (req.session.logged_in) {
     res.redirect('/dashboard');
-    return
+    return;
+  }
+  res.render('login');
+});
+
+router.get('/signup', (req, res) => {
+  if (req.session.logged_in) {
+    res.redirect('/dashboard');
+    return;
   }
   res.render('signup');
 });
 
 router.get('/newpost', (req, res) => {
   if (req.session.logged_in) {
-    res.render('newpost');
+    res.render('new_post');
     return;
   }
   res.redirect('/login');
@@ -78,9 +86,14 @@ router.get('/newpost', (req, res) => {
 router.get('/editpost/:id', async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
-      include: [{
-        model: User, attributes: ['username']
-      },
+      include: [
+        { model: User, attributes: ['username'] },
+        {
+          model: Comment,
+          include: [{
+            model: User, attributes: ['username']
+          }],
+        }
       ],
     });
     const post = postData.get({ plain: true });

@@ -10,5 +10,7 @@ const blogLogout = async () => {
     alert(response.statusText);
   }
 };
-
-document.querySelector('#blog-logout').addEventListener('click', blogLogout);
+const logoutButton = document.querySelector('#blog-logout');
+if (logoutButton) {
+logoutButton.addEventListener('click', blogLogout);
+}

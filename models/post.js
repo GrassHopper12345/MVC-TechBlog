@@ -29,6 +29,10 @@ Post.init(
         key: 'id',
       },
     },
+    created_at: {
+      type: Date,
+
+    },
   },
   {
     sequelize,

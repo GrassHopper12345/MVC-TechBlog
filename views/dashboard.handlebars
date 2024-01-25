@@ -10,7 +10,7 @@
     {{#each posts}}
     <div class="post-container post mb-3">
         <h2>
-            <a href="/post/{{id}}" class="text-decoration-none text-reset">{{title}}</a>
+            <a href="/posts/{{id}}" class="text-decoration-none text-reset">{{title}}</a>
         </h2>
         <p>Posted by: {{user.username}} | Date: {{format_date createdAt}}</p>
         <a href="/posts/{{id}}" class="btn btn-warning">Edit Post</a>

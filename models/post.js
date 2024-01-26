@@ -29,10 +29,10 @@ Post.init(
         key: 'id',
       },
     },
-    // created_at: {
-    //   type: DataTypes.DATE, // Use DataTypes.DATE for the created_at column
-    //   defaultValue: DataTypes.NOW, // Set a default value to the current timestamp
-    // },
+    created_at: {
+      type: DataTypes.DATE, // Use DataTypes.DATE for the created_at column
+      defaultValue: DataTypes.NOW, // Set a default value to the current timestamp
+    },
   },
   {
     sequelize,

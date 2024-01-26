@@ -12,7 +12,7 @@
         <h2>
             <a href="/posts/{{id}}" class="text-decoration-none text-reset">{{title}}</a>
         </h2>
-        <p>Posted by: {{user.username}} | Date: {{format_date created_at}}</p>
+        <p>Posted by: {{user.username}} | Date: {{format_date createdAt}}</p>
         <a href="/editpost/{{id}}" class="btn btn-warning">Edit Post</a>
         <button class="btn btn-danger delete-post" data-post-id="{{id}}">Delete Post</button>
     </div>

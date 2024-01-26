@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Post extends Model { }
+class Post extends Model {}
 
 Post.init(
   {
@@ -30,8 +30,8 @@ Post.init(
       },
     },
     created_at: {
-      type: Date,
-
+      type: DataTypes.DATE, // Use DataTypes.DATE for the created_at column
+      defaultValue: DataTypes.NOW, // Set a default value to the current timestamp
     },
   },
   {
